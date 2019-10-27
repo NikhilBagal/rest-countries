@@ -1,0 +1,21 @@
+* {
+  margin: 0%;
+  padding: 0%;
+}
+
+main {
+  overflow: hidden;
+}
+
+main .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+main .container .country .short-view img {
+  width: 335px;
+}
+/*# sourceMappingURL=style.css.map */
