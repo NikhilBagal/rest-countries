@@ -14,6 +14,7 @@ fetch(url).then(responce => responce.json()).then(function(data){
         addHtml(data[i],'p','population');
         addHtml(data[i],'p','region');
         addHtml(data[i],'p','capital');
+    //    console.log(data[i]['region']);
     }
   //  console.log(Object.keys(data[0]));
 });
@@ -26,7 +27,31 @@ function createElement(elementType,classN,parrentElement,attrType,attrVal){
     parrentElement.appendChild(newElement);
 }
 function addWrapper(e){
-    createElement('div','country',element,'id',e['alpha2Code']);
+    if(e['region'] === 'Asia'){
+        var parentSelector = document.querySelector('main .container .asia');
+     //   console.log(parentSelector);
+        createElement('div','country',parentSelector,'id',e['alpha2Code']);
+    }else if(e['region'] === 'Europe'){
+        var parentSelector = document.querySelector('main .container .europe');
+      //  console.log(parentSelector);
+        createElement('div','country',parentSelector,'id',e['alpha2Code']);
+    }else if(e['region'] === 'Africa'){
+        var parentSelector = document.querySelector('main .container .africa');
+      //  console.log(parentSelector);
+        createElement('div','country',parentSelector,'id',e['alpha2Code']);
+    }else if(e['region'] === 'Americas'){
+        var parentSelector = document.querySelector('main .container .america');
+     //   console.log(parentSelector);
+        createElement('div','country',parentSelector,'id',e['alpha2Code']);
+    }else if(e['region'] === 'Oceania'){
+        var parentSelector = document.querySelector('main .container .oceania');
+      //  console.log(parentSelector);
+        createElement('div','country',parentSelector,'id',e['alpha2Code']);
+    }else {
+        var parentSelector = document.querySelector('main .container .others');
+        createElement('div','country',parentSelector,'id',e['alpha2Code']);
+    }
+    
 }
 function shortView(e){
     var parentSelector = document.querySelector('main .container '+'#'+e['alpha2Code']);
