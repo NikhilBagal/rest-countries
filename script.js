@@ -10,24 +10,14 @@ fetch(url).then(responce => responce.json()).then(function(data){
         image(data[i],'.short-view');
         headIng(data[i],'.short-view');
         paraGraph(data[i],'.short-view');
+        addHtml(data[i],'h3','name');
+        addHtml(data[i],'p','population');
+        addHtml(data[i],'p','region');
+        addHtml(data[i],'p','capital');
     }
-    
-   // info = data;
-    
-  /*  console.log(Object.keys(data[0]));
-    
-    createElement('div','af',element);
-    addHtml();*/
+  //  console.log(Object.keys(data[0]));
 });
 
-/*function addHtml(){
-    var ele = document.querySelector('main .af');
-    var country = info[0];
-    ele.innerHTML += country['name'];
-    createElement('img','flag',ele);
-    var img = document.querySelector('main .af img');
-    img.setAttribute('src',country['flag']) ;
-}*/
 window.onload = init;
 function createElement(elementType,classN,parrentElement,attrType,attrVal){
     var newElement = document.createElement(elementType);
@@ -58,11 +48,27 @@ function headIng(e,ele){
 }
 function paraGraph(e,ele){
     var parentSelector = document.querySelector('main .container '+'#'+e['alpha2Code']+' '+ele);
-    createElement('p','para',parentSelector,'id','');
+    createElement('p','para',parentSelector,'id','population');
+    createElement('p','para',parentSelector,'id','region');
+    createElement('p','para',parentSelector,'id','capital');
 }
 function init(){
-
-}
-function addHtml(){
     
+}
+function addHtml(e,ele,key){
+    var selector = document.querySelector('#'+e['alpha2Code']+'-short-view '+ele);
+  //  console.log(selector);
+    if(ele === 'h3'){
+        selector.innerHTML += e[key];
+    }else if(ele === 'p'){
+        var paraSelector = document.querySelector('#'+e['alpha2Code']+'-short-view '+'#'+key);
+           // console.log(paraSelector);
+        if(key === 'population'){
+            paraSelector.innerHTML += '<b>Population</b>: '+e['population'];
+        }else if(key === 'region'){
+            paraSelector.innerHTML += '<b>Region</b>: '+e['region'];
+        }else if(key === 'capital'){
+            paraSelector.innerHTML += '<b>Capital</b>: '+e['capital'];
+        }       
+    }
 }
