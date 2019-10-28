@@ -3,19 +3,56 @@
   padding: 0%;
 }
 
-main {
-  overflow: hidden;
+body {
+  background-color: #ffffff;
 }
 
-main .container {
+body main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow-x: hidden;
 }
 
-main .container .country .short-view img {
-  width: 335px;
+body main header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+body main header .theme-head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  padding: 20px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body main header .theme-head h2 {
+  margin-left: 5%;
+}
+
+body main header .theme-head span {
+  margin-right: 5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 10%;
+}
+
+body main header .theme-head span i {
+  margin-right: 8%;
 }
 /*# sourceMappingURL=style.css.map */

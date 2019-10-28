@@ -2,17 +2,33 @@
     margin: 0%;
     padding: 0%;
 }
-main {
-    overflow: hidden;
-    .container {
+body {
+    background-color: #ffffff;
+    main {
         display: flex;
-        flex-wrap: wrap;
-        .country {
-            
-            .short-view {
-                img {
-                    width: 335px;
-                  //  max-height: 100px;
+        flex-direction: column;
+        overflow-x: hidden;
+        header {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            .theme-head {
+                display: flex;
+                width: 100%;
+                padding: 20px;
+               // margin: auto 10%;
+                justify-content: space-between;
+                h2 {
+                    margin-left: 5%;
+                }
+                span {
+                    margin-right: 5%;
+                    display: flex;
+                  //  justify-content: space-between;
+                    width: 10%;
+                    i {
+                        margin-right: 8%;
+                    }
                 }
             }
         }
