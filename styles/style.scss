@@ -36,6 +36,10 @@ body {
                     }
                 }
             }
+            .theme-head.active {
+                background-color: #1b1f2e;
+                box-shadow: none;
+            }
             nav {
                 display: flex;
                 width: 100%;
@@ -56,12 +60,20 @@ body {
                         border-radius: 5px;
                         outline: none;
                     }
+                    input.active {
+                        background-color: #1b1f2e;
+                        box-shadow: none;
+                        color: #fff;
+                    }
                     span {
                         position: absolute;
                         left: 28%;
                         top: 25%;
                         color: gray;
                         cursor: pointer;
+                    }
+                    span.active {
+                        color: #fff;
                     }
                 }
                 #region-selector {
@@ -75,6 +87,11 @@ body {
                     -moz-box-shadow: 0px 10px 10px 0px rgba(189,189,189,1);
                     box-shadow: 0px 10px 10px 0px rgba(189,189,189,1);
                     z-index: 1;
+                }
+                #region-selector.active {
+                    background-color: #1b1f2e;
+                    box-shadow: none;
+                    color: #fff;
                 }
             }
             
@@ -119,6 +136,10 @@ body {
                     -moz-box-shadow: 0px 10px 5px 0px rgba(82,82,82,1);
                     box-shadow: 0px 10px 5px 0px rgba(82,82,82,1);
                 }
+                .short-view.active {
+                    background-color: #1b1f2e;
+                    box-shadow: none;
+                }
                 .full-view {
                     display: none;
                 }
@@ -129,4 +150,8 @@ body {
             
         }
     }
+}
+body.active {
+    background-color: #0e101a;
+    color: #fff;
 }

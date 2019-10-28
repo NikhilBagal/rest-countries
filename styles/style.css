@@ -60,6 +60,12 @@ body main header .theme-head span i {
   margin-right: 8%;
 }
 
+body main header .theme-head.active {
+  background-color: #1b1f2e;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
 body main header nav {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -90,12 +96,23 @@ body main header nav .searchBox input {
   outline: none;
 }
 
+body main header nav .searchBox input.active {
+  background-color: #1b1f2e;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  color: #fff;
+}
+
 body main header nav .searchBox span {
   position: absolute;
   left: 28%;
   top: 25%;
   color: gray;
   cursor: pointer;
+}
+
+body main header nav .searchBox span.active {
+  color: #fff;
 }
 
 body main header nav #region-selector {
@@ -108,6 +125,13 @@ body main header nav #region-selector {
   -webkit-box-shadow: 0px 10px 10px 0px #bdbdbd;
   box-shadow: 0px 10px 10px 0px #bdbdbd;
   z-index: 1;
+}
+
+body main header nav #region-selector.active {
+  background-color: #1b1f2e;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  color: #fff;
 }
 
 body main .container {
@@ -152,11 +176,22 @@ body main .container .country .short-view:hover {
   box-shadow: 0px 10px 5px 0px #525252;
 }
 
+body main .container .country .short-view.active {
+  background-color: #1b1f2e;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
 body main .container .country .full-view {
   display: none;
 }
 
 body main .container .country .full-view.active {
   display: block;
+}
+
+body.active {
+  background-color: #0e101a;
+  color: #fff;
 }
 /*# sourceMappingURL=style.css.map */

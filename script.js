@@ -78,7 +78,7 @@ function paraGraph(e,ele){
     createElement('p','para',parentSelector,'id','capital');
 }
 function init(){
-    
+    themeChanger();
 }
 function addHtml(e,ele,key){
     var selector = document.querySelector('#'+e['alpha2Code']+'-short-view '+ele);
@@ -96,4 +96,22 @@ function addHtml(e,ele,key){
             paraSelector.innerHTML += '<b>Capital</b>: '+e['capital'];
         }       
     }
+}
+function themeChanger(){
+    var elementSelector = document.querySelector('main header .theme-head span');
+    elementSelector.addEventListener('click',function(){
+        var bodySelector = document.querySelector('body');
+        var inputSelector = document.querySelector('main header nav .searchBox input');
+        var inputIconSelector = document.querySelector('main header nav .searchBox span');
+        var selectionSelector = document.querySelector('main header nav #region-selector');
+        var shortViewSelector = document.querySelectorAll('main .container .country .short-view');
+        for(var i of shortViewSelector){
+            i.classList.toggle('active');
+        }
+        selectionSelector.classList.toggle('active');
+        inputIconSelector.classList.toggle('active');
+        inputSelector.classList.toggle('active');
+        bodySelector.classList.toggle('active');
+        elementSelector.parentElement.classList.toggle('active');        
+    })
 }
