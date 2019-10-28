@@ -4,7 +4,7 @@
 }
 
 body {
-  background-color: #ffffff;
+  background-color: #e8e8e8;
 }
 
 body main {
@@ -38,6 +38,9 @@ body main header .theme-head {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-shadow: 0px 5px 10px 0px #ebebeb;
+  box-shadow: 0px 5px 10px 0px #ebebeb;
+  background-color: #fff;
 }
 
 body main header .theme-head h2 {
@@ -50,9 +53,110 @@ body main header .theme-head span {
   display: -ms-flexbox;
   display: flex;
   width: 10%;
+  cursor: pointer;
 }
 
 body main header .theme-head span i {
   margin-right: 8%;
+}
+
+body main header nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  margin: 3% auto 3% auto;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body main header nav .searchBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  width: 50%;
+}
+
+body main header nav .searchBox input {
+  width: 50%;
+  margin: auto 25%;
+  padding: 10px 10px 10px 50px;
+  -webkit-box-shadow: 0px 10px 10px 0px #bdbdbd;
+  box-shadow: 0px 10px 10px 0px #bdbdbd;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+}
+
+body main header nav .searchBox span {
+  position: absolute;
+  left: 28%;
+  top: 25%;
+  color: gray;
+  cursor: pointer;
+}
+
+body main header nav #region-selector {
+  margin-right: 10%;
+  width: 15%;
+  border-radius: 5px;
+  padding: 10px;
+  border: none;
+  outline: none;
+  -webkit-box-shadow: 0px 10px 10px 0px #bdbdbd;
+  box-shadow: 0px 10px 10px 0px #bdbdbd;
+  z-index: 1;
+}
+
+body main .container {
+  width: 90%;
+  margin: auto 5%;
+  padding: 0%;
+}
+
+body main .container .country .short-view {
+  width: 20%;
+  height: 50vh;
+  float: left;
+  margin: auto 5% 5% auto;
+  -webkit-box-shadow: 0px 10px 5px 0px #d1d1d1;
+  box-shadow: 0px 10px 5px 0px #d1d1d1;
+  overflow: hidden;
+  font-family: sans-serif;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+
+body main .container .country .short-view img {
+  width: 100%;
+  height: 25vh;
+}
+
+body main .container .country .short-view h3 {
+  margin: 5% auto 5% 5%;
+  width: 100%;
+  font-size: 20px;
+}
+
+body main .container .country .short-view p {
+  font-weight: 500;
+  font-size: 15px;
+  margin: 5px auto auto 5%;
+}
+
+body main .container .country .short-view:hover {
+  -webkit-box-shadow: 0px 10px 5px 0px #525252;
+  box-shadow: 0px 10px 5px 0px #525252;
+}
+
+body main .container .country .full-view {
+  display: none;
+}
+
+body main .container .country .full-view.active {
+  display: block;
 }
 /*# sourceMappingURL=style.css.map */
