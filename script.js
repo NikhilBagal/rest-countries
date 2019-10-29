@@ -14,7 +14,16 @@ fetch(url).then(responce => responce.json()).then(function(data){
         addHtml(data[i],'p','population');
         addHtml(data[i],'p','region');
         addHtml(data[i],'p','capital');
-        
+        paraGraphFullView(data[i],'.full-view');
+        buttonsFullView(data[i],'.full-view');
+        fullViewAddHtml(data[i],'p','nativeName');
+        fullViewAddHtml(data[i],'p','population');
+        fullViewAddHtml(data[i],'p','region');
+        fullViewAddHtml(data[i],'p','subregion');
+        fullViewAddHtml(data[i],'p','capital');
+        fullViewAddHtml(data[i],'p','topLevelDomain');
+        fullViewAddHtml(data[i],'p','currencies');
+        fullViewAddHtml(data[i],'p','languages');
     //    console.log(data[i]['region']);
     }
     search(data);
@@ -62,7 +71,7 @@ function shortView(e){
 }
 function fullView(e){
     var parentSelector = document.querySelector('main .container '+'#'+e['alpha2Code']);
-    var id = e['alpha2Code']+'-'+'full-view';
+    var id = e['alpha3Code']+'-'+'full-view';
     createElement('div','full-view',parentSelector,'id',id);
 }
 function image(e,ele){
@@ -90,10 +99,56 @@ function paraGraphFullView(e,ele){
     createElement('p','para',parentSelector,'id','topLevelDomain');
     createElement('p','para',parentSelector,'id','currencies');
     createElement('p','para',parentSelector,'id','languages');
+    createElement('div','neighbourCountries',parentSelector,'id','');
 }
 
 function buttonsFullView(e,ele){
-    var parentSelector = document.querySelector('main .container '+'#'+e['alpha2Code']+' '+ele);
+    var parentSelector = document.querySelector('main .container '+'#'+e['alpha2Code']+' '+ele+' .neighbourCountries');
+   // console.log(parentSelector);
+   var nbrCtn = e['borders'];
+  // console.log(nbrCtn);
+  if(nbrCtn.length > 0){
+    for(var i=0;i<nbrCtn.length;i++){
+        createElement('button','btn',parentSelector,'value',nbrCtn[i]);
+    }
+  }
+  
+}
+
+function fullViewAddHtml(e,ele,key){
+    var selector = document.querySelector('#'+e['alpha3Code']+'-full-view'+ele);
+    if(ele === 'p'){
+        var paraSelector = document.querySelector('#'+e['alpha3Code']+'-full-view '+'#'+key);
+        switch(key){
+            case 'nativeName':
+                paraSelector.innerHTML += '<b>Native Name</b>: '+e['nativeName'];
+                break;
+            case 'population':
+                paraSelector.innerHTML += '<b>Population</b>: '+e['population'];
+                break;
+            case 'region':
+                paraSelector.innerHTML += '<b>Region</b>: '+e['region'];
+                break;
+            case "subregion":
+                paraSelector.innerHTML += '<b>Sub Region</b>: '+e['subregion'];
+                break;
+            case 'capital':
+                paraSelector.innerHTML += '<b>Capital</b>: '+e['capital'];
+                break;
+            case 'topLevelDomain':
+                paraSelector.innerHTML += '<b>Top Level Domain</b>: '+e['topLevelDomain'];
+                break;
+            case 'currencies':
+                paraSelector.innerHTML += '<b>Currencies</b>: '+e['currencies']['name'];
+                console.log(e['currencies'].name);
+                
+                
+                break;
+            case 'languages':
+                paraSelector.innerHTML += '<b>Languages</b>: '+e['languages'];
+                break;
+        }
+    }
 }
 
 function init(){
