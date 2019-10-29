@@ -18,7 +18,7 @@ fetch(url).then(responce => responce.json()).then(function(data){
     //    console.log(data[i]['region']);
     }
     search(data);
-  //  console.log(Object.keys(data[0]));
+    console.log(Object.keys(data[0]));
 })
 
 window.onload = init;
@@ -78,6 +78,22 @@ function paraGraph(e,ele){
     createElement('p','para',parentSelector,'id','population');
     createElement('p','para',parentSelector,'id','region');
     createElement('p','para',parentSelector,'id','capital');
+}
+
+function paraGraphFullView(e,ele){
+    var parentSelector = document.querySelector('main .container '+'#'+e['alpha2Code']+' '+ele);
+    createElement('p','para',parentSelector,'id','nativeName');
+    createElement('p','para',parentSelector,'id','population');
+    createElement('p','para',parentSelector,'id','region');
+    createElement('p','para',parentSelector,'id','subregion');
+    createElement('p','para',parentSelector,'id','capital');
+    createElement('p','para',parentSelector,'id','topLevelDomain');
+    createElement('p','para',parentSelector,'id','currencies');
+    createElement('p','para',parentSelector,'id','languages');
+}
+
+function buttonsFullView(e,ele){
+    var parentSelector = document.querySelector('main .container '+'#'+e['alpha2Code']+' '+ele);
 }
 
 function init(){
