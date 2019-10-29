@@ -1,6 +1,6 @@
 let element = document.querySelector('main .container');
 const url = 'https://restcountries.eu/rest/v2/all';
-var info = {};
+
 
 fetch(url).then(responce => responce.json()).then(function(data){
     for(var i=0;i<data.length;i++){
@@ -14,10 +14,12 @@ fetch(url).then(responce => responce.json()).then(function(data){
         addHtml(data[i],'p','population');
         addHtml(data[i],'p','region');
         addHtml(data[i],'p','capital');
+        
     //    console.log(data[i]['region']);
     }
+    search(data);
   //  console.log(Object.keys(data[0]));
-});
+})
 
 window.onload = init;
 function createElement(elementType,classN,parrentElement,attrType,attrVal){
@@ -77,9 +79,13 @@ function paraGraph(e,ele){
     createElement('p','para',parentSelector,'id','region');
     createElement('p','para',parentSelector,'id','capital');
 }
+
 function init(){
     themeChanger();
+    filter();
+  //  search();
 }
+
 function addHtml(e,ele,key){
     var selector = document.querySelector('#'+e['alpha2Code']+'-short-view '+ele);
   //  console.log(selector);
@@ -97,6 +103,7 @@ function addHtml(e,ele,key){
         }       
     }
 }
+
 function themeChanger(){
     var elementSelector = document.querySelector('main header .theme-head span');
     elementSelector.addEventListener('click',function(){
@@ -114,4 +121,72 @@ function themeChanger(){
         bodySelector.classList.toggle('active');
         elementSelector.parentElement.classList.toggle('active');        
     })
+}
+
+function filter(){
+    var selectionSelector = document.querySelector('main header nav #region-selector');
+   selectionSelector.addEventListener('input',function(event){
+      // console.log(event.target.value);
+      var containerSelector = document.querySelector('main .container '+'.'+event.target.value);
+     // console.log(containerSelector.parentElement.children);
+     var siblingSelector = containerSelector.parentElement.children;
+     for(var i of siblingSelector){
+         if(i.className !== event.target.value){
+            i.style.display = 'none';
+         }else {
+             i.style.display = 'block';
+         }
+         
+     }
+   })
+}
+
+function search(data){
+    var info = {} ;
+    var key = {};
+    var searchBoxSelector = document.querySelector('main header nav .searchBox input');
+   // console.log(searchBoxSelector);
+    for(var i=0;i<data.length;i++){
+        info[data[i]['name']] = data[i]['alpha2Code'];
+
+    }
+    searchBoxSelector.addEventListener('keyup',function(){
+       //console.log(event.target.value);
+       var text;
+       var regex;
+       if(event.target.value !== ''){
+        text = '^'+event.target.value;
+        regex = new RegExp(text,'gi');
+       // console.log(regex.test(text));
+      //  console.log(text);
+       // console.log(regex);
+       }else {
+            var allCountrySelector = document.querySelectorAll('main .container .country');
+            for(var i of allCountrySelector){
+                i.style.display = 'block';
+            }
+       }
+       key = Object.keys(info);
+       for(var i=0;i<key.length;i++){
+          // console.log(key[i]);
+          if(regex.test(key[i]) === true){
+             // console.log(key[i]);
+           // console.log(info[key[i]]);
+           var alphaCode = info[key[i]];
+          // console.log(alphaCode);
+           var countrySelector =  document.querySelector('main .container '+'#'+alphaCode);
+           var allCountrySelector = document.querySelectorAll('main .container .country');
+           for(var i of allCountrySelector){
+               if(i !== countrySelector){
+                   i.style.display = 'none';
+               }else {
+                   i.style.display = 'block';
+               }
+           }
+          //  console.log(countrySelector);
+          }
+       }
+       
+    })
+    
 }
