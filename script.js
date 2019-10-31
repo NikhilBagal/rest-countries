@@ -24,8 +24,11 @@ fetch(url).then(responce => responce.json()).then(function(data){
         fullViewAddHtml(data[i],'p','topLevelDomain');
         fullViewAddHtml(data[i],'p','currencies');
         fullViewAddHtml(data[i],'p','languages');
+        buttonID(data[i],'.full-view');
+        
     //    console.log(data[i]['region']);
     }
+    buttonAddHtml(data);
     search(data);
     console.log(Object.keys(data[0]));
 })
@@ -112,7 +115,14 @@ function buttonsFullView(e,ele){
         createElement('button','btn',parentSelector,'value',nbrCtn[i]);
     }
   }
-  
+}
+
+function buttonID(e,ele){
+    var parentSelector = document.querySelector('main .container '+'#'+e['alpha2Code']+' '+ele+' .neighbourCountries');
+    var nbrCtn = parentSelector.children;
+    for(var i = 0;i<nbrCtn.length;i++){
+        nbrCtn[i].setAttribute('id',e['borders'][i]);
+    }
 }
 
 function fullViewAddHtml(e,ele,key){
@@ -139,16 +149,34 @@ function fullViewAddHtml(e,ele,key){
                 paraSelector.innerHTML += '<b>Top Level Domain</b>: '+e['topLevelDomain'];
                 break;
             case 'currencies':
-                paraSelector.innerHTML += '<b>Currencies</b>: '+e['currencies']['name'];
-                console.log(e['currencies'].name);
-                
-                
+                paraSelector.innerHTML += '<b>Currencies</b>: '+e['currencies'][0]['name'];
                 break;
             case 'languages':
-                paraSelector.innerHTML += '<b>Languages</b>: '+e['languages'];
+                for(var i=0;i<e['languages'].length;i++){
+                    paraSelector.innerHTML += '<b>Languages</b>: '+e['languages'][i]['name'];
+                }
                 break;
         }
+    }else {
+        
     }
+}
+
+function buttonAddHtml(e){
+    var obj = {};
+    
+    
+  /*      for(var i=0;i<e.length;i++){
+            obj[e[i]['alpha3Code']] = e[i]['name'];
+            var borderCountries = e[i]['borders'];
+            var parentSelector = document.querySelector('#'+e[i]['alpha3Code']+'-full-view .neighbourCountries ');
+            for(var i=0;i<borderCountries.length;i++){
+                var buttonSelector = (parentSelector+'#'+borderCountries[i]);
+                buttonSelector.innerHTML += borderCountries[i];
+            }
+        }
+        console.log(obj);
+        */
 }
 
 function init(){
