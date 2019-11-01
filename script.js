@@ -164,19 +164,19 @@ function fullViewAddHtml(e,ele,key){
 
 function buttonAddHtml(e){
     var obj = {};
-    
-    
-  /*      for(var i=0;i<e.length;i++){
-            obj[e[i]['alpha3Code']] = e[i]['name'];
-            var borderCountries = e[i]['borders'];
-            var parentSelector = document.querySelector('#'+e[i]['alpha3Code']+'-full-view .neighbourCountries ');
-            for(var i=0;i<borderCountries.length;i++){
-                var buttonSelector = (parentSelector+'#'+borderCountries[i]);
-                buttonSelector.innerHTML += borderCountries[i];
-            }
+    for(var i=0;i<e.length;i++){
+        obj[e[i]['alpha3Code']] = e[i]['name'];
+    }
+   // console.log(obj);
+    for(var i=0;i<e.length;i++){
+        var selector = document.querySelectorAll('#'+e[i]['alpha3Code']+'-full-view .neighbourCountries .btn');
+        //console.log(selector);
+        for(var j=0;j<selector.length;j++){
+           // console.log(selector[j]);
+           selector[j].innerHTML += obj[selector[j].id];
+         // console.log(obj[j.id]);
         }
-        console.log(obj);
-        */
+    }
 }
 
 function init(){
