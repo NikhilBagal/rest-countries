@@ -115,6 +115,7 @@ body {
                     cursor: pointer;
                     border: none;
                     border-radius: 5px;
+
                     img {
                         width: 100%;
                         height: 25vh;
@@ -141,7 +142,7 @@ body {
                     box-shadow: none;
                 }
                 .full-view {
-                    display: none;
+                    display: block;
                 }
                 .full-view.active {
                     display: block;

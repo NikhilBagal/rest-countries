@@ -183,7 +183,7 @@ body main .container .country .short-view.active {
 }
 
 body main .container .country .full-view {
-  display: none;
+  display: block;
 }
 
 body main .container .country .full-view.active {

@@ -14,8 +14,12 @@ fetch(url).then(responce => responce.json()).then(function(data){
         addHtml(data[i],'p','population');
         addHtml(data[i],'p','region');
         addHtml(data[i],'p','capital');
-        paraGraphFullView(data[i],'.full-view');
+        addWrapperFullView(data[i]);
+        imgFullView(data[i],'.img-btn-grp');
+        backButtonFullView(data[i]);
+        paraGraphFullView(data[i],'.para-btn-grp');
         buttonsFullView(data[i],'.full-view');
+        fullViewAddHtml(data[i],'.heading','');
         fullViewAddHtml(data[i],'p','nativeName');
         fullViewAddHtml(data[i],'p','population');
         fullViewAddHtml(data[i],'p','region');
@@ -28,12 +32,15 @@ fetch(url).then(responce => responce.json()).then(function(data){
         
     //    console.log(data[i]['region']);
     }
+    console.log(data[0]['name']);
+    console.log(data[0]['borders']);
     buttonAddHtml(data);
     search(data);
     console.log(Object.keys(data[0]));
 })
 
 window.onload = init;
+
 function createElement(elementType,classN,parrentElement,attrType,attrVal){
     var newElement = document.createElement(elementType);
     newElement.className = classN;
@@ -92,8 +99,22 @@ function paraGraph(e,ele){
     createElement('p','para',parentSelector,'id','capital');
 }
 
+function addWrapperFullView(e){
+    var parentSelector = document.querySelector('#'+e['alpha2Code']+ ' .full-view');
+    createElement('div','img-btn-grp',parentSelector,'id','');
+    createElement('div','para-btn-grp',parentSelector,'id','');
+ //   console.log(parentSelector);
+}
+
+function imgFullView(e,ele){
+    var parentSelector = document.querySelector('main .container '+'#'+e['alpha2Code']+' '+ele);
+    createElement('button','back-button',parentSelector,'val','back-button');
+    createElement('img','flag-full-view',parentSelector,'src',e['flag']);
+}
+
 function paraGraphFullView(e,ele){
     var parentSelector = document.querySelector('main .container '+'#'+e['alpha2Code']+' '+ele);
+    createElement('h2','heading',parentSelector,'id','');
     createElement('p','para',parentSelector,'id','nativeName');
     createElement('p','para',parentSelector,'id','population');
     createElement('p','para',parentSelector,'id','region');
@@ -105,8 +126,14 @@ function paraGraphFullView(e,ele){
     createElement('div','neighbourCountries',parentSelector,'id','');
 }
 
+function backButtonFullView(e){
+    var elementSelector = document.querySelector('main .container '+'#'+e['alpha2Code']+' '+'.img-btn-grp .back-button');
+    elementSelector.innerHTML += '<span><i class="fa fa-long-arrow-left" aria-hidden="true"></i><p>Back</p>';
+}
+
 function buttonsFullView(e,ele){
     var parentSelector = document.querySelector('main .container '+'#'+e['alpha2Code']+' '+ele+' .neighbourCountries');
+    parentSelector.innerHTML += '<h3>Border Countries: </h3>';
    // console.log(parentSelector);
    var nbrCtn = e['borders'];
   // console.log(nbrCtn);
@@ -118,15 +145,17 @@ function buttonsFullView(e,ele){
 }
 
 function buttonID(e,ele){
-    var parentSelector = document.querySelector('main .container '+'#'+e['alpha2Code']+' '+ele+' .neighbourCountries');
-    var nbrCtn = parentSelector.children;
+    var parentSelector = document.querySelectorAll('main .container '+'#'+e['alpha2Code']+' '+ele+' .neighbourCountries button');
+    var nbrCtn = parentSelector //.children;
     for(var i = 0;i<nbrCtn.length;i++){
-        nbrCtn[i].setAttribute('id',e['borders'][i]);
+        if(nbrCtn[i].tagName === 'BUTTON'){
+            nbrCtn[i].setAttribute('id',e['borders'][i]);
+        }
+        
     }
 }
 
 function fullViewAddHtml(e,ele,key){
-    var selector = document.querySelector('#'+e['alpha3Code']+'-full-view'+ele);
     if(ele === 'p'){
         var paraSelector = document.querySelector('#'+e['alpha3Code']+'-full-view '+'#'+key);
         switch(key){
@@ -158,7 +187,9 @@ function fullViewAddHtml(e,ele,key){
                 break;
         }
     }else {
-        
+        var selector = document.querySelector('#'+e['alpha3Code']+'-full-view .para-btn-grp '+ele);
+      //  console.log(selector);
+        selector.innerHTML += e['name'];
     }
 }
 
@@ -169,7 +200,7 @@ function buttonAddHtml(e){
     }
    // console.log(obj);
     for(var i=0;i<e.length;i++){
-        var selector = document.querySelectorAll('#'+e[i]['alpha3Code']+'-full-view .neighbourCountries .btn');
+        var selector = document.querySelectorAll('#'+e[i]['alpha3Code']+'-full-view .para-btn-grp .neighbourCountries .btn');
         //console.log(selector);
         for(var j=0;j<selector.length;j++){
            // console.log(selector[j]);
