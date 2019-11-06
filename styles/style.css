@@ -194,14 +194,16 @@ body main .container .country .full-view.active {
       -ms-flex-pack: justify;
           justify-content: space-between;
   position: absolute;
-  top: 11%;
+  top: 0;
   left: 0;
   background-color: #fff;
   height: 100vh;
   width: 100%;
+  font-family: sans-serif;
 }
 
 body main .container .country .full-view.active .img-btn-grp {
+  margin: 10% auto auto 5%;
   width: 40%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -213,16 +215,85 @@ body main .container .country .full-view.active .img-btn-grp {
 }
 
 body main .container .country .full-view.active .img-btn-grp img {
-  width: 150px;
+  width: 80%;
+  margin-top: 10%;
 }
 
 body main .container .country .full-view.active .img-btn-grp button {
-  width: 10%;
+  width: 20%;
+  height: 30px;
   cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 10px 0px #a8a3a8;
+  box-shadow: 0px 0px 10px 0px #a8a3a8;
+  background-color: #fff;
+}
+
+body main .container .country .full-view.active .img-btn-grp button span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body main .container .country .full-view.active .img-btn-grp button span i {
+  margin-right: 10%;
 }
 
 body main .container .country .full-view.active .para-btn-grp {
+  margin: 10% 5% auto auto;
   width: 40%;
+}
+
+body main .container .country .full-view.active .para-btn-grp h2 {
+  margin: 20% auto 5% auto;
+}
+
+body main .container .country .full-view.active .para-btn-grp p {
+  width: 50%;
+  float: left;
+  margin: auto auto 2% auto;
+  font-size: 15px;
+}
+
+body main .container .country .full-view.active .para-btn-grp .neighbourCountries {
+  margin: 30% auto auto auto;
+}
+
+body main .container .country .full-view.active .para-btn-grp .neighbourCountries h3 {
+  font-size: 15px;
+  margin: 5% auto 2% auto;
+}
+
+body main .container .country .full-view.active .para-btn-grp .neighbourCountries button {
+  width: 15%;
+  cursor: pointer;
+  padding: 5px;
+  background-color: #fff;
+  margin: auto 3% 2% auto;
+  border: none;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 10px 0px #a8a3a8;
+  box-shadow: 0px 0px 10px 0px #a8a3a8;
+}
+
+body main .container .country .full-view.active.night-mode {
+  background-color: #0e101a;
+}
+
+body main .container .country .full-view.active.night-mode .img-btn-grp button {
+  background-color: #1b1f2e;
+  color: #fff;
+}
+
+body main .container .country .full-view.active.night-mode .para-btn-grp .neighbourCountries button {
+  background-color: #1b1f2e;
+  color: #fff;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 body.active {

@@ -244,6 +244,7 @@ function themeChanger(){
         var inputIconSelector = document.querySelector('main header nav .searchBox span');
         var selectionSelector = document.querySelector('main header nav #region-selector');
         var shortViewSelector = document.querySelectorAll('main .container .country .short-view');
+        var fullViewSelector = document.querySelector('.country .full-view.active');
         for(var i of shortViewSelector){
             i.classList.toggle('active');
         }
@@ -251,6 +252,7 @@ function themeChanger(){
         inputIconSelector.classList.toggle('active');
         inputSelector.classList.toggle('active');
         bodySelector.classList.toggle('active');
+        fullViewSelector.classList.toggle('night-mode');
         elementSelector.parentElement.classList.toggle('active');        
     })
 }
