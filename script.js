@@ -36,6 +36,7 @@ fetch(url).then(responce => responce.json()).then(function(data){
     console.log(data[0]['borders']);
     buttonAddHtml(data);
     search(data);
+    viewChanger();
     console.log(Object.keys(data[0]));
 })
 
@@ -213,6 +214,7 @@ function buttonAddHtml(e){
 function init(){
     themeChanger();
     filter();
+    
   //  search();
 }
 
@@ -319,4 +321,20 @@ function search(data){
        
     })
     
+}
+
+function viewChanger(){
+    var elementSelector = document.querySelectorAll('.country .short-view');
+    for(var i of elementSelector){
+        i.addEventListener('click',function(){
+         //   console.log(event.currentTarget.parentElement.id);
+            var elementId = event.currentTarget.parentElement.id;
+            var fullViewElement = document.querySelector('#'+elementId+' .full-view');
+            fullViewElement.classList.add('active');
+          /*  var smallViewElement = document.querySelectorAll('.country .short-view');
+            for(var i of smallViewElement){
+                i.classList.add('')
+            }*/
+        })
+    }
 }

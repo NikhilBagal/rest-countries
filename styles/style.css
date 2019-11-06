@@ -35,6 +35,7 @@ body main header .theme-head {
   display: flex;
   width: 100%;
   padding: 20px;
+  z-index: 1;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -124,7 +125,6 @@ body main header nav #region-selector {
   outline: none;
   -webkit-box-shadow: 0px 10px 10px 0px #bdbdbd;
   box-shadow: 0px 10px 10px 0px #bdbdbd;
-  z-index: 1;
 }
 
 body main header nav #region-selector.active {
@@ -183,11 +183,46 @@ body main .container .country .short-view.active {
 }
 
 body main .container .country .full-view {
-  display: block;
+  display: none;
 }
 
 body main .container .country .full-view.active {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: absolute;
+  top: 11%;
+  left: 0;
+  background-color: #fff;
+  height: 100vh;
+  width: 100%;
+}
+
+body main .container .country .full-view.active .img-btn-grp {
+  width: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body main .container .country .full-view.active .img-btn-grp img {
+  width: 150px;
+}
+
+body main .container .country .full-view.active .img-btn-grp button {
+  width: 10%;
+  cursor: pointer;
+}
+
+body main .container .country .full-view.active .para-btn-grp {
+  width: 40%;
 }
 
 body.active {
