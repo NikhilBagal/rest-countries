@@ -37,6 +37,8 @@ fetch(url).then(responce => responce.json()).then(function(data){
     buttonAddHtml(data);
     search(data);
     viewChanger();
+    backbutton();
+    countryButton();
     console.log(Object.keys(data[0]));
 })
 
@@ -182,8 +184,9 @@ function fullViewAddHtml(e,ele,key){
                 paraSelector.innerHTML += '<b>Currencies</b>: '+e['currencies'][0]['name'];
                 break;
             case 'languages':
+                paraSelector.innerHTML += '<b>Languages</b>: ';
                 for(var i=0;i<e['languages'].length;i++){
-                    paraSelector.innerHTML += '<b>Languages</b>: '+e['languages'][i]['name'];
+                    paraSelector.innerHTML +=  ' '+e['languages'][i]['name'];
                 }
                 break;
         }
@@ -244,7 +247,9 @@ function themeChanger(){
         var inputIconSelector = document.querySelector('main header nav .searchBox span');
         var selectionSelector = document.querySelector('main header nav #region-selector');
         var shortViewSelector = document.querySelectorAll('main .container .country .short-view');
-        var fullViewSelector = document.querySelector('.country .full-view.active');
+        var fullViewSelector = document.querySelectorAll('.country .full-view');
+        var headerSelector = document.querySelector('main header .theme-head');
+       // console.log(headerSelector);
         for(var i of shortViewSelector){
             i.classList.toggle('active');
         }
@@ -252,8 +257,12 @@ function themeChanger(){
         inputIconSelector.classList.toggle('active');
         inputSelector.classList.toggle('active');
         bodySelector.classList.toggle('active');
-        fullViewSelector.classList.toggle('night-mode');
-        elementSelector.parentElement.classList.toggle('active');        
+        headerSelector.classList.toggle('active');
+        for(var i of fullViewSelector){
+            i.classList.toggle('night-mode');
+        }
+        
+       // elementSelector.parentElement.classList.toggle('active');        
     })
 }
 
@@ -333,10 +342,46 @@ function viewChanger(){
             var elementId = event.currentTarget.parentElement.id;
             var fullViewElement = document.querySelector('#'+elementId+' .full-view');
             fullViewElement.classList.add('active');
+            var smallViewSelector = document.querySelectorAll('.country .short-view');
+            for(var i of smallViewSelector){
+                i.style.display = 'none';
+            }
           /*  var smallViewElement = document.querySelectorAll('.country .short-view');
             for(var i of smallViewElement){
                 i.classList.add('')
             }*/
+        })
+    }
+}
+
+function backbutton(){
+    var elementSelector = document.querySelectorAll('.country .full-view .img-btn-grp .back-button');
+    for(var i of elementSelector){
+        i.addEventListener('click',function(){
+            event.currentTarget.parentElement.parentElement.classList.remove('active');
+            var smallViewSelector = document.querySelectorAll('.country .short-view');
+            for(var i of smallViewSelector){
+                i.style.display = 'block';
+            }
+        })
+    }
+   // console.log(elementSelector);
+}
+
+function countryButton(){
+    var elementSelector = document.querySelectorAll('.country .full-view .para-btn-grp .neighbourCountries .btn');
+    for(var i of elementSelector){
+        i.addEventListener('click',function(){
+            var fullViewSelector = document.querySelectorAll('.country .full-view');
+            var allCountrySelector = document.querySelectorAll('main .container .country');
+            for(var i of allCountrySelector){
+                i.style.display = '';
+            }
+            for(var i of fullViewSelector){
+                i.classList.remove('active');
+            }
+            var countrySelector = document.querySelector('#'+event.target.value+'-full-view');
+            countrySelector.classList.add('active');
         })
     }
 }
