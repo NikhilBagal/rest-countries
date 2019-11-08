@@ -300,4 +300,103 @@ body.active {
   background-color: #0e101a;
   color: #fff;
 }
+
+@media only screen and (max-width: 1000px) {
+  body main header .theme-head span {
+    width: 20%;
+  }
+  body main .container .country .short-view h3 {
+    font-size: 15px;
+  }
+  body main .container .country .short-view p {
+    font-size: 10px;
+  }
+  body main .container .country .full-view.active .img-btn-grp {
+    margin: 15% auto auto 5%;
+  }
+  body main .container .country .full-view.active .img-btn-grp button {
+    width: 30%;
+  }
+  body main .container .country .full-view.active .para-btn-grp {
+    width: 50%;
+  }
+  body main .container .country .full-view.active .para-btn-grp .neighbourCountries {
+    margin: 35% auto auto auto;
+  }
+  body main .container .country .full-view.active .para-btn-grp .neighbourCountries h3 {
+    margin: 5% auto 3% auto;
+  }
+  body main .container .country .full-view.active .para-btn-grp .neighbourCountries button {
+    width: 25%;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  body main header .theme-head h2 {
+    margin-left: 2%;
+    font-size: 15px;
+  }
+  body main header .theme-head span {
+    margin-right: 2%;
+    font-size: 12px;
+    width: 30%;
+  }
+  body main header nav {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  body main header nav .searchBox {
+    width: 100%;
+  }
+  body main header nav .searchBox input {
+    width: 90%;
+    margin: 5% 5% auto 5%;
+  }
+  body main header nav .searchBox span {
+    left: 10%;
+    top: 50%;
+  }
+  body main header nav #region-selector {
+    width: 50%;
+    margin: 10% auto 10% 5%;
+  }
+  body main .container .country .short-view {
+    float: none;
+    width: 80%;
+    margin: auto 10% 5% 10%;
+  }
+  body main .container .country .short-view h3 {
+    font-size: 20px;
+  }
+  body main .container .country .short-view p {
+    font-size: 15px;
+  }
+  body main .container .country .full-view.active {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  body main .container .country .full-view.active .img-btn-grp {
+    margin: 25% auto auto 10%;
+    width: 100%;
+  }
+  body main .container .country .full-view.active .para-btn-grp {
+    margin: auto 10%;
+    width: 80%;
+  }
+  body main .container .country .full-view.active .para-btn-grp h2 {
+    margin: 5% auto;
+  }
+  body main .container .country .full-view.active .para-btn-grp p {
+    width: 100%;
+    float: left;
+    margin: 2% auto;
+    font-size: 15px;
+  }
+}
 /*# sourceMappingURL=style.css.map */
