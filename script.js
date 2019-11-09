@@ -85,9 +85,9 @@ function headIng(e,ele){
 }
 function paraGraph(e,ele){
     var parentSelector = document.querySelector('main .container '+'#'+e['alpha2Code']+' '+ele);
-    createElement('p','para',parentSelector,'id','population');
-    createElement('p','para',parentSelector,'id','region');
-    createElement('p','para',parentSelector,'id','capital');
+    createElement('p','para',parentSelector,'class','population');
+    createElement('p','para',parentSelector,'class','region');
+    createElement('p','para',parentSelector,'class','capital');
 }
 
 function addWrapperFullView(e){
@@ -105,14 +105,14 @@ function imgFullView(e,ele){
 function paraGraphFullView(e,ele){
     var parentSelector = document.querySelector('main .container '+'#'+e['alpha2Code']+' '+ele);
     createElement('h2','heading',parentSelector,'id','');
-    createElement('p','para',parentSelector,'id','nativeName');
-    createElement('p','para',parentSelector,'id','population');
-    createElement('p','para',parentSelector,'id','region');
-    createElement('p','para',parentSelector,'id','subregion');
-    createElement('p','para',parentSelector,'id','capital');
-    createElement('p','para',parentSelector,'id','topLevelDomain');
-    createElement('p','para',parentSelector,'id','currencies');
-    createElement('p','para',parentSelector,'id','languages');
+    createElement('p','para',parentSelector,'class','nativeName');
+    createElement('p','para',parentSelector,'class','population');
+    createElement('p','para',parentSelector,'class','region');
+    createElement('p','para',parentSelector,'class','subregion');
+    createElement('p','para',parentSelector,'class','capital');
+    createElement('p','para',parentSelector,'class','topLevelDomain');
+    createElement('p','para',parentSelector,'class','currencies');
+    createElement('p','para',parentSelector,'class','languages');
     createElement('div','neighbourCountries',parentSelector,'id','');
 }
 
@@ -144,7 +144,7 @@ function buttonID(e,ele){
 
 function fullViewAddHtml(e,ele,key){
     if(ele === 'p'){
-        var paraSelector = document.querySelector('#'+e['alpha3Code']+'-full-view '+'#'+key);
+        var paraSelector = document.querySelector('#'+e['alpha3Code']+'-full-view '+'.'+key);
         switch(key){
             case 'nativeName':
                 paraSelector.innerHTML += '<b>Native Name</b>: '+e['nativeName'];
@@ -203,7 +203,7 @@ function addHtml(e,ele,key){
     if(ele === 'h3'){
         selector.innerHTML += e[key];
     }else if(ele === 'p'){
-        var paraSelector = document.querySelector('#'+e['alpha2Code']+'-short-view '+'#'+key);
+        var paraSelector = document.querySelector('#'+e['alpha2Code']+'-short-view '+'.'+key);
         if(key === 'population'){
             paraSelector.innerHTML += '<b>Population</b>: '+e['population'];
         }else if(key === 'region'){
