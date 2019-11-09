@@ -34,6 +34,7 @@ fetch(url).then(responce => responce.json()).then(function(data){
     viewChanger();
     backbutton();
     countryButton();
+    imgAttr();
 })
 
 window.onload = init;
@@ -130,6 +131,17 @@ function buttonsFullView(e,ele){
         createElement('button','btn',parentSelector,'value',nbrCtn[i]);
     }
   }
+}
+
+function imgAttr(){
+    var shortViewSelector = document.querySelectorAll('main .container .country .short-view img');
+    for(var i of shortViewSelector){
+        i.setAttribute('alt','flag image');
+    }
+    var fullViewSelector = document.querySelectorAll('main .container .country .full-view .img-btn-grp img');
+    for(var i of fullViewSelector){
+        i.setAttribute('alt','flag image');
+    }
 }
 
 /*function buttonID(e,ele){
