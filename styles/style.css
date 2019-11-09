@@ -365,7 +365,7 @@ body.active {
   body main .container .country .short-view {
     float: none;
     width: 80%;
-    margin: auto 10% 5% 10%;
+    margin: auto 10% 10% 10%;
   }
   body main .container .country .short-view h3 {
     font-size: 20px;
