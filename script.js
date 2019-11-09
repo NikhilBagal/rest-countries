@@ -27,7 +27,7 @@ fetch(url).then(responce => responce.json()).then(function(data){
         fullViewAddHtml(data[i],'p','topLevelDomain');
         fullViewAddHtml(data[i],'p','currencies');
         fullViewAddHtml(data[i],'p','languages');
-        buttonID(data[i],'.full-view');
+      //  buttonID(data[i],'.full-view');
     }
     buttonAddHtml(data);
     search(data);
@@ -132,7 +132,7 @@ function buttonsFullView(e,ele){
   }
 }
 
-function buttonID(e,ele){
+/*function buttonID(e,ele){
     var parentSelector = document.querySelectorAll('main .container '+'#'+e['alpha2Code']+' '+ele+' .neighbourCountries button');
     var nbrCtn = parentSelector ;
     for(var i = 0;i<nbrCtn.length;i++){
@@ -140,7 +140,7 @@ function buttonID(e,ele){
             nbrCtn[i].setAttribute('id',e['borders'][i]);
         }
     }
-}
+}*/
 
 function fullViewAddHtml(e,ele,key){
     if(ele === 'p'){
@@ -188,7 +188,7 @@ function buttonAddHtml(e){
     for(var i=0;i<e.length;i++){
         var selector = document.querySelectorAll('#'+e[i]['alpha3Code']+'-full-view .para-btn-grp .neighbourCountries .btn');
         for(var j=0;j<selector.length;j++){
-           selector[j].innerHTML += obj[selector[j].id];
+           selector[j].innerHTML += obj[selector[j].value];
         }
     }
 }
